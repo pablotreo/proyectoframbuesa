@@ -1,5 +1,8 @@
-import { Image } from '@chakra-ui/react'
+import { PhoneIcon, EmailIcon } from '@chakra-ui/icons';
+import { Image } from '@chakra-ui/react';
 import Head from 'next/head';
+import { Divider } from '@chakra-ui/react';
+
 import {
   Box,
   Heading,
@@ -10,7 +13,8 @@ import {
   Icon,
   useColorModeValue,
   createIcon,
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
+
 
 const imageStyle = {
   transform: "rotate(-8deg)"
@@ -51,10 +55,12 @@ export default function Hero() {
             donde pronto podrán conocer todo sobre nuestra apasionante labor 
             en la producción de frambuesas y mermelada de frambuesa.
           </Text>
-          <Text fontSize='2xl' color={'gray.400'} py={{ base: 6, md: 6 }}>
+          <Divider />
+          <Text fontSize='2xl' color={'gray.400'} pb={{ base: 10, md: 20 }}>
             Contacto: <br />
-            proyectoframbuesacontacto@gmail.com <br />
-            Pablo +54 264 4450828 
+            <EmailIcon boxSize={5}/> proyectoframbuesacontacto@gmail.com <br />
+            <PhoneIcon boxSize={5}/> Pablo +54 264 4450828
+            
           </Text>
           
           {/* <Stack
