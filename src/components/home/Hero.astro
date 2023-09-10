@@ -1,0 +1,41 @@
+<section class="py-16 sm:py-20" x-data>
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="grid gap-24 lg:grid-cols-2">
+      <div class="flex flex-col items-start gap-8 sm:gap-10 lg:mt-0">
+        <div class="flex max-w-xl flex-col items-start gap-4 sm:gap-6">
+          <h1
+            class="text-4xl font-medium tracking-tight opacity-0 duration-1000 sm:text-5xl lg:text-6xl"
+            x-intersect="$el.classList.add('opacity-100')"
+            
+          >
+            <span style="color: #75aa28;">Proyecto</span>
+            <span style="color: #ba1242;">Frambuesa</span>
+          </h1>
+          <p
+            class="text-lg text-primary-950/70 opacity-0 duration-1000 dark:text-primary-200/70 sm:text-xl"
+            x-intersect="$el.classList.add('opacity-100')"
+          >
+            Este proyecto surge de la ganas de hacer algo distinto y natural, aprovechando todos los
+            recursos de la Cordillera de los Andes. Nos dedicamos a cultivar, cuidar y cosechar las
+            plantas de Frambuesa para luego producir los mejores productos con la mejor materia
+            prima.
+          </p>
+        </div>
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center rounded-md border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white opacity-0 transition duration-1000 hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-white dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400"
+          x-intersect="$el.classList.add('opacity-100')"
+        >
+          Contacto
+        </a>
+      </div>
+      <img
+        class="hidden h-auto animate-pulse sm:flex"
+        style="transform: rotate(-10deg)"
+        src="/assets/logoPFfondoT.png"
+        width="300"
+        alt="Proyeascto Frambuesa"
+      />
+    </div>
+  </div>
+</section>

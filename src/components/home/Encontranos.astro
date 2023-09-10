@@ -1,0 +1,59 @@
+---
+const team = [
+  {
+    name: 'Macadamia Pastelería Vegana',
+    image: '/assets/macadamia.png',
+    instagram: 'https://instagram.com/macadamiapasteleriavegana/',
+  },
+  {
+    name: 'Comeme Pastelería',
+    image: '/assets/comeme.png',
+    instagram: 'https://instagram.com/comeme_pasteleria_/',
+  },
+  {
+    name: 'Qhapaq Ñan Panadería',
+    image: '/assets/polo.png',
+    instagram: 'https://instagram.com/juanpabloceballos5/',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="sm:space-8 space-y-12">
+      <h2 class="text-3xl text-center font-medium tracking-tight sm:text-4xl">Amigos de Proyecto Frambuesa !!!</h2>
+      <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          team.map((item) => (
+            <li class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border px-6 py-8">
+              <div class="space-y-6">
+                <a href={item.instagram} target="_blank">
+                  <img class="mx-auto h-auto w-40 rounded-full brightness-95 hover:brightness-110" src={item.image} alt={item.name} />
+                </a>
+                <div class="text-center">
+                  <h3 class="text-lg font-medium">{item.name}</h3>
+                  <a
+                  class="text-base text-primary-950/70 dark:text-primary-200/70 sm:text-lg inline-flex items-center gap-1 rounded-md hover:underline focus-visible:outline focus-visible:outline-2"
+                  target="_blank"
+                  href={item.instagram}
+                >
+                  Instagram
+                  <svg
+                    class="h-4 w-4"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z" />
+                  </svg>
+                </a>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

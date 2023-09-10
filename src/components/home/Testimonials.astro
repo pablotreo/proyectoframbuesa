@@ -1,0 +1,78 @@
+---
+const testimonials = [
+  {
+    name: 'Guido',
+    description: '',
+    image: '/assets/testimonial-1.webp',
+    message:
+      '“Exquisitas frambuesas orgánicas!!! Cultivo agroecológico con una gran dedicación y amor por la tierra. La pasión puesta en este emprendimiento está visible en cada detalle.”',
+  },
+  {
+    name: 'Gabriela',
+    description: '',
+    image: '/assets/testimonial-3.webp',
+    message:
+      '“Mermeladas exquisitas y delicadas. Excelente calidad.”',
+  },
+  {
+    name: 'Soledad',
+    description: '',
+    image: '/assets/testimonial-2.webp',
+    message:
+      '“El mejor dulce de frambuesas del mundo, organico, con el azucar justa. Un proyecto hermoso y con mucha dedicacion”',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="v mx-auto px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="flex flex-col items-center gap-12 lg:gap-20">
+      <a class="flex mx-auto max-w-xl text-center text-3xl font-medium tracking-tight sm:text-4xl" target="_blank" href="https://www.google.com/maps/place/ProyectoFrambuesa/@-30.4355959,-69.2514259,15z/data=!4m6!3m5!1s0x9684937ab1197541:0x60dac13d4433068f!8m2!3d-30.4355959!4d-69.2514259!16s%2Fg%2F11kq4znsyc?entry=ttu">
+        Opiniones en Google 
+        <svg
+        class="h-9 w-9 ml-2 mt-1"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        aria-hidden="true"
+      >
+        <path d="M10 6V8H5V19H16V14H18V20C18 20.5523 17.5523 21 17 21H4C3.44772 21 3 20.5523 3 20V7C3 6.44772 3.44772 6 4 6H10ZM21 3V11H19L18.9999 6.413L11.2071 14.2071L9.79289 12.7929L17.5849 5H13V3H21Z" />
+      </svg>
+      </a>
+      <div
+        class="divide-primary-900/10 dark:divide-primary-300/10 grid divide-y lg:grid-cols-3 lg:divide-x lg:divide-y-0"
+      >
+        {
+          testimonials.map((testimonial) => (
+            <figure class="mx-auto flex max-w-lg flex-col items-center gap-6 py-8 lg:px-8 lg:py-0">
+              <div class="flex flex-row gap-2">
+                {[...Array(3)].map(() => (
+                  <svg
+                    class="text-primary-600 dark:text-primary-400 h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12.0006 18.26L4.94715 22.2082L6.52248 14.2799L0.587891 8.7918L8.61493 7.84006L12.0006 0.5L15.3862 7.84006L23.4132 8.7918L17.4787 14.2799L19.054 22.2082L12.0006 18.26Z" />
+                  </svg>
+                ))}
+              </div>
+              <blockquote class="text-primary-950/70 dark:text-primary-200/70 text-center text-lg italic leading-loose">
+                <p>{testimonial.message}</p>
+              </blockquote>
+              <figcaption class="flex flex-col gap-4">
+                <div class="text-center">
+                  <div class="text-base font-medium">{testimonial.name}</div>
+                  <div class="text-primary-950/70 dark:text-primary-200/70 text-sm">
+                    {testimonial.description}
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

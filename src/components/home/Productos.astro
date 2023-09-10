@@ -1,0 +1,42 @@
+---
+const team = [
+  {
+    name: 'Mermelada de Frambuesa',
+    image: '/assets/MermeladaF.jpg',
+    description: 'Sabor puro y natural, producto orgánico, una explosión de frambuesas frescas en cada cucharada.',
+  },
+  {
+    name: 'Frambuesa Congelada',
+    image: '/assets/fCongelada.jpg',
+    description: 'Frambusesas capturadas en su mejor momento, listas para dar un toque de frescura a tus platos.',
+  },
+  {
+    name: 'Té de Frambuesa',
+    image: '/assets/TeF.jpg',
+    description: 'Té de hojas de Frambuesa, favorece la salud femenina y brinda calidez reconfortante en cada sorbo.',
+  },
+];
+---
+
+<section class="py-16 sm:py-20">
+  <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="sm:space-8 space-y-12">
+      <h2 class="text-3xl font-medium tracking-tight sm:text-4xl">Nuestros Productos</h2>
+      <ul role="list" class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          team.map((item) => (
+            <li class="border-primary-900/10 dark:border-primary-300/10 rounded-3xl border px-6 py-8">
+              <div class="space-y-6">
+                <img class="mx-auto h-auto rounded-3xl hover:scale-105 transition duration-300" src={item.image} alt={item.name} />
+                <div class="text-left">
+                  <h3 class="text-2xl font-medium">{item.name}</h3>
+                   <p class="text-primary-950/70 dark:text-primary-200/80 text-lg">{item.description}</p>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>
