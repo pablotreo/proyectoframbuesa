@@ -29,6 +29,7 @@
         <input type="hidden" name="access_key" value="5dad4575-401b-4c06-b838-99745c69b6e6" />
         <!-- Create your free access key from https://web3forms.com/ -->
         <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+        <input type="hidden" name="from_name" value="Web ProyectoFrambuesa">
         <div class="mb-5">
           <input
             type="text"
@@ -111,7 +112,7 @@
       const object = Object.fromEntries(formData);
       const json = JSON.stringify(object);
 
-      result.innerHTML = 'Sending...';
+      result.innerHTML = 'Enviando...';
 
       fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -134,7 +135,7 @@
         })
         .catch((error) => {
           console.log(error);
-          result.innerHTML = 'Something went wrong!';
+          result.innerHTML = 'Algo salio mal!';
         })
         .then(function () {
           form.reset();
