@@ -1,3 +1,9 @@
+---
+// import Button from "./ui/button.astro";
+---
+
+<!-- To make this contact form work, create your free access key from https://web3forms.com/
+     Then you will get all form submissions in your email inbox. -->
 <section class="py-16 sm:py-20">
   <div class="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
     <div class="grid gap-12 lg:grid-cols-2 lg:gap-8">
@@ -8,12 +14,135 @@
         </h2>
         <p class="text-primary-950/70 dark:text-primary-200/70 max-w-lg text-lg sm:text-xl">
           Estamos ubicados en el valle que se forma entre la pre Cordillera y la Cordillera de los Andes, 
-          en el pueblo de Bella Vista, Departamento Iglesia, Provincia de San Juan. 
-        </p>
+          en el pueblo de Bella Vista, Departamento Iglesia, Provincia de San Juan. <br>
+          Escribinos para saber más de Proyecto Frambuesa !!! 
+        </p> 
+        
       </div>
-      <div class="mt-3 flex flex-col gap-y-6">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1884.2255783318446!2d-69.25154434162037!3d-30.435515235323837!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9684937ab1197541%3A0x60dac13d4433068f!2sProyectoFrambuesa!5e1!3m2!1ses-419!2sar!4v1694188524294!5m2!1ses-419!2sar" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
+      <form
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        id="form"
+        class="needs-validation"
+        novalidate
+      >
+        <input type="hidden" name="access_key" value="5dad4575-401b-4c06-b838-99745c69b6e6" />
+        <!-- Create your free access key from https://web3forms.com/ -->
+        <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+        <div class="mb-5">
+          <input
+            type="text"
+            placeholder="Nombre Completo"
+            required
+            class="block w-full appearance-none rounded-md border-0 bg-primary-50 px-4 py-4 text-base ring-1 ring-primary-900/40 transition placeholder:text-primary-950/60 hover:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:bg-primary-950 dark:ring-primary-200/40 dark:placeholder:text-primary-200/60 dark:hover:ring-primary-400 dark:focus:ring-primary-400"
+            name="name"
+          />
+          <div class="empty-feedback invalid-feedback text-red-400 mt-1 text-sm">
+            Por favor ingresar nombre.
+          </div>
+        </div>
+        <div class="mb-5">
+          <label for="email_address" class="sr-only">Dirección de Email</label><input
+            id="email_address"
+            type="email"
+            placeholder="Dirección de Email"
+            name="email"
+            required
+            class="block w-full appearance-none rounded-md border-0 bg-primary-50 px-4 py-4 text-base ring-1 ring-primary-900/40 transition placeholder:text-primary-950/60 hover:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:bg-primary-950 dark:ring-primary-200/40 dark:placeholder:text-primary-200/60 dark:hover:ring-primary-400 dark:focus:ring-primary-400"
+          />
+          <div class="empty-feedback text-red-400 mt-1 text-sm">Por favor ingresar email.</div>
+          <div class="invalid-feedback text-red-400 mt-1 text-sm">
+            Por favor ingresar email válido.
+          </div>
+        </div>
+        <div class="mb-3">
+          <textarea
+            name="message"
+            required
+            placeholder="Tu Mensaje"
+            class="block w-full appearance-none rounded-md border-0 bg-primary-50 px-4 py-4 text-base ring-1 ring-primary-900/40 transition placeholder:text-primary-950/60 hover:ring-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 dark:bg-primary-950 dark:ring-primary-200/40 dark:placeholder:text-primary-200/60 dark:hover:ring-primary-400 dark:focus:ring-primary-400"
+          ></textarea>
+          <div class="empty-feedback invalid-feedback text-red-400 mt-1 text-sm">
+            Por favor ingresar un mensaje.
+          </div>
+        </div>
+        <button
+          class="mt-4 inline-flex items-center justify-center rounded-lg border border-transparent bg-primary-600 px-5 py-3 text-base font-medium text-white transition hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600 dark:bg-primary-400 dark:text-primary-950 dark:hover:bg-primary-300 dark:focus-visible:outline-primary-400"
+          type="submit"
+        >
+          Enviar
+        </button>
+        <div id="result" class="mt-3 text-center"></div>
+      </form>
     </div>
   </div>
+  <style>
+    .invalid-feedback,
+    .empty-feedback {
+      display: none;
+    }
+
+    .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+      display: block;
+    }
+
+    .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+      display: block;
+    }
+
+    .is-invalid,
+    .was-validated :invalid {
+      border-color: #dc3545;
+    }
+  </style>
+
+  <script is:inline>
+    const form = document.getElementById('form');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.classList.add('was-validated');
+      if (!form.checkValidity()) {
+        form.querySelectorAll(':invalid')[0].focus();
+        return;
+      }
+      const formData = new FormData(form);
+      const object = Object.fromEntries(formData);
+      const json = JSON.stringify(object);
+
+      result.innerHTML = 'Sending...';
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      })
+        .then(async (response) => {
+          let json = await response.json();
+          if (response.status == 200) {
+            result.classList.add('text-green-500');
+            result.innerHTML = json.message;
+          } else {
+            console.log(response);
+            result.classList.add('text-red-500');
+            result.innerHTML = json.message;
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          result.innerHTML = 'Something went wrong!';
+        })
+        .then(function () {
+          form.reset();
+          form.classList.remove('was-validated');
+          setTimeout(() => {
+            result.style.display = 'none';
+          }, 5000);
+        });
+    });
+  </script>
 </section>
