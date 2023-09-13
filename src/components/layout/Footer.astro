@@ -27,6 +27,17 @@ const bottomLinks = [
       },
     ],
   },
+  {
+    header: '',
+    links: [
+      { 
+        name: 'Arriba ^',
+        isExternal: false,
+        href: '',
+        id: 'arriba',
+      }
+    ],
+  },
 ];
 ---
 
@@ -51,7 +62,7 @@ const bottomLinks = [
       </div>
 
       <!-- Bottom links -->
-      <div class="grid max-w-xl flex-1 grid-cols-1 gap-8 sm:grid-cols-2">
+      <div class="grid max-w-xl flex-1 grid-cols-1 gap-8 sm:grid-cols-3">
         {
           bottomLinks.map((group) => (
             <div class="flex flex-col gap-4">
@@ -61,6 +72,7 @@ const bottomLinks = [
                   <li>
                     <a
                       href={link.href}
+                      id={link.id}
                       class="focus-visible:outline-primary-950 dark:focus-visible:outline-primary-200 inline-flex items-center gap-1 rounded-md text-base hover:underline focus-visible:outline focus-visible:outline-2"
                       target={link.isExternal ? '_blank' : undefined}
                       rel={link.isExternal ? 'noopener' : undefined}
@@ -78,6 +90,7 @@ const bottomLinks = [
                         </svg>
                       )}
                     </a>
+                    
                   </li>
                 ))}
               </ul>
@@ -88,3 +101,10 @@ const bottomLinks = [
     </div>
   </div>
 </footer>
+
+<script>
+  function scrollToTop() {
+    window.scrollTo(0, 0);
+  }
+  document.getElementById("arriba").addEventListener("click", scrollToTop);
+</script>
