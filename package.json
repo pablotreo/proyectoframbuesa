@@ -15,6 +15,8 @@
     "@astrojs/tailwind": "4.0.0",
     "@fontsource/inter": "5.0.8",
     "@types/alpinejs": "3.7.2",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "alpinejs": "3.12.3",
     "astro": "2.10.13",
     "astro-compress": "2.0.14",
